@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
-def summary_page():
+def page_summary_body():
     st.title("General information")
     st.info( f"*Skin cancer is a type of cancer that develops in the skin cells. "
             f"It is one of the most common types of cancer worldwide, and it can be caused by various factors, "
