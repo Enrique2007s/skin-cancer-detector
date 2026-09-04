@@ -28,7 +28,8 @@ def page_for_ml_performance_body():
         model_loss = plt.imread(f"outputs/{version}/model_training_losses.png")
         st.image(model_loss, caption='Model Training Loss')
 
-st.write('---')
-st.warning(
-    f"From the model performance metrics, we notice that the model is performing badly in all areas."
-    f"This might be due to the small dataset the model was trained on. Many different parameters were used, and this was the best result")
+    st.write('---')
+    st.warning(
+        f"From the model performance metrics, we notice that the model is performing badly in all areas."
+        f"This might be due to the small dataset the model was trained on. Many different parameters were used, and this was the best result"
+        f"This model ")

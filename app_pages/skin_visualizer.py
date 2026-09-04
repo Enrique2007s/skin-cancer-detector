@@ -29,8 +29,6 @@ def page_for_skn_visualizer_body():
         f"which could be enough to make a distinction(difference in colour between benign and malignant skin lesions)."
         f"However, this shall be left to the professionals in this area.")
         
-    st.write("---")
-
 
     if st.checkbox("Difference between benign and malignant skin lesions"):
         diff_between_skin_lesions = plt.imread(f"outputs/{version}/benign_vs_malignant_difference.png")

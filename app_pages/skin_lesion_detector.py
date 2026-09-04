@@ -8,7 +8,9 @@ from src.machine_learning.predictive_analysis import (load_model_and_predict,res
 
 def page_skin_lesion_detector_body():
     st.info(f"The client is interested in identifying non malignant and malignant skin cancer in patients through"
-             f" a machine learning application, used as a second opinion.")
+             f" a machine learning application, used as a second opinion."
+             f" WARNING: The model cannot accurately predict the skin lesion type, "
+             f"and should not be used as a diagnostic tool. It is only for educational purposes.")
 
     st.write("---")
 
