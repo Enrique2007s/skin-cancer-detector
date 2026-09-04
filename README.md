@@ -38,7 +38,7 @@ The dataset contains a total of 3297 images of both malignant and benign labels.
   - Accuracy: 70-85%
   - Specificity: 75-80%
   - Precision: about 65% (When the model says "Cancer", it's right about 2 out of 3 times)
-
+(sadly, this was not possible due to the small dataset used)
 
 ## Dashboard Design
 * Page Summary: Contains small talk about skin cancer and places the user can read more information such as the ISIC Archives or the SCF. It also contains the business requirements
@@ -78,25 +78,39 @@ Only thing that truly bugged the developer was the model's inability to effectiv
 
 
 ## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
-joblib == used for saving models
-keras == Used for building/training neural networks
-matplotlib.pyplot(smaller part of matplot) == creates charts, graphs, and plots
-numpy == mathematical operations
-pandas == mathematical operations
-pillow == reading images
-plotly == plotting images
-scikit-learn == building the ML model
-seaborn == data visualization
-streamlit == creating app/dashboard
-tensorflow == transforming data into arrays for ML model learning
+* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries\
+joblib == used for saving models\
+keras == Used for building/training neural networks\
+matplotlib.pyplot(smaller part of matplot) == creates charts, graphs, and plots\
+numpy == mathematical operations\
+pandas == mathematical operations\
+pillow == reading images\
+plotly == plotting images\
+scikit-learn == building the ML model\
+seaborn == data visualization\
+streamlit == creating app/dashboard\
+tensorflow == transforming data into arrays for ML model learning\
 
 
 ## Credits 
 
-Credits are due to many sources, such as DeepSeek(AI), Emmett(AI), online tutorials explaining how CNN models work(Indian people really explain these models well), the malaria walkthrough project(some codeblocks, such as the more complex backend blocks were used in my project).
+Credits are due to many sources, such as:/ DeepSeek(AI)/ Emmett(AI)/ online tutorials explaining how CNN models work(Indian people really explain these models well)/ the malaria walkthrough project(some codeblocks, such as the more complex backend blocks were used in my project)
 
 
 ## Acknowledgements (optional)
 * I would like to thank everyone who has helped me throughout the whole year I have been with Code Institute. I have learnt a lot with this group and really appreciate the kindness and amazing conversations I have had. I would also like to thank my parents for being supportive throughout my whole journey in Full-Stack Development and Machine Learning. Without them, this would not have been possible.
 
+## Notes
+
+I believe I have the best story to tell when working with this project.\
+First, I was working normally with this project in a forked repository. Then, suddenly, everything stopped working, saying thinsg such as "[library] could not be resolved" in yellow writing, so I tried looking for ways to resolve this. I could not continue on for some reason as the code blocks would refuse to run correctly. I spent a whole day fixing this, and could not, so in the end I just made a new repository using the template from CI as a template(yes, the green template button on the top right). After that, everything seemed to work again!\
+Then, when I tried working on the model, I started obtaining horrendous looking graphs. I have a few notes I will rewrite onto this readme:
+
+1-) I had to reduce my batch size because I kept on receiving an Allocation of "series of numbers" exceeds 10% of my system memory. I felt that this called me poor in so many different ways haha.\
+2-) After about three models, I continued lowering the learning rate and added gradient clipping to prevent val_loss spiking from 0.5 to 1.04
+3-) After various tries, I saw the model was still learning nothing, so I loosened the constraints it had by having higher learning rate and gentler clipping(clipnorm). I also removed the 4th block this time.
+4-) Finally, I made the augmented images be less different. In other words, making the differences slightly less subtle.
+5-) I ended up removing another block in the model in hopes of being able to get a higher score for loss and accuracy. I also removed clipping, added stronger regularization.
+6-) Finally, after making my model much simpler, I saw improvements and the model had actually learnt better than before. I had increased class weights to force learning malignant, I also had played around with the kernel, but sadly, the model still was not able to learn effectively.
+
+This goes to show how important data is to be able to teach ML models how to differentiate between two classes. In other words, garbage in, garbage out. Diamonds in, Diamonds out.
